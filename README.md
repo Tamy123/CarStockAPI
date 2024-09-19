@@ -8,6 +8,22 @@ CarStockAPI is a RESTful API for managing car inventory for multiple dealers. It
 - Add, Update, Delete, and Search Cars by Make, Model, Year
 - Manage Stock Levels for Cars
 - Multi-tenancy support (Each dealer has their own inventory)
+- **Validation**: The API enforces data integrity through comprehensive validation using FluentValidation, ensuring inputs like car `Make`, `Model`, `Year`, and dealer credentials (email and password) meet defined rules.
+
+## Validation Rules
+
+The project includes the following key validation rules:
+
+- **Dealer Registration:**
+  - **Dealer Name**: Must be provided (required field).
+  - **Email**: Validates email format and ensures that the **same email cannot be registered twice**.
+  - **Password**: Passwords must be at least 8 characters long and contain uppercase, lowercase letters, digits, and special characters.
+  
+- **Car Fields:**
+  - **Make**: Must contain only alphabetic characters.
+  - **Model**: Cannot be empty.
+  - **Year**: Must be within a valid range (e.g., between 1900 and the current year).
+  - **Stock**: Must be a non-negative integer.
 
 ## Prerequisites
 
