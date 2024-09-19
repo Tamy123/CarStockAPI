@@ -55,13 +55,13 @@ dotnet test
 
 ### Step 1: Pull the Docker Image
 ```bash
-docker pull <your-docker-image-url>
+docker pull tamy123/car-stock-api
 ```
 
 ### Step 2: Run the Docker Container
 After pulling the image, you can run it as a container:
 ```bash
-docker run -d -p 8080:80 <your-docker-image-url>
+docker run -d -p 8080:80 tamy123/car-stock-api
 ```
 This will make the API accessible on http://localhost:8080
 
