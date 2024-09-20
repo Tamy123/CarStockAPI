@@ -8,6 +8,7 @@ CarStockAPI is a RESTful API for managing car inventory for multiple dealers. It
 - Add, Update, Delete, and Search Cars by Make, Model, Year
 - Manage Stock Levels for Cars
 - Multi-tenancy support (Each dealer has their own inventory)
+- **In-Memory Database**: The project uses an in-memory data structure to simulate a database for storing and managing cars and dealers, making it easy to run locally without requiring a full database setup.
 - **Validation**: The API enforces data integrity through comprehensive validation using FluentValidation, ensuring inputs like car `Make`, `Model`, `Year`, and dealer credentials (email and password) meet defined rules.
 - **Unit Tests**: Comprehensive unit tests have been added using XUnit to cover key functionality, including car addition, searching, deletion and stock updates. Tests ensure the correctness of logic and validation, improving code reliability.
 
