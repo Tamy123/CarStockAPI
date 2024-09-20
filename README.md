@@ -9,6 +9,7 @@ CarStockAPI is a RESTful API for managing car inventory for multiple dealers. It
 - Manage Stock Levels for Cars
 - Multi-tenancy support (Each dealer has their own inventory)
 - **Validation**: The API enforces data integrity through comprehensive validation using FluentValidation, ensuring inputs like car `Make`, `Model`, `Year`, and dealer credentials (email and password) meet defined rules.
+- **Unit Tests**: Comprehensive unit tests have been added using XUnit to cover key functionality, including car addition, searching, deletion and stock updates. Tests ensure the correctness of logic and validation, improving code reliability.
 
 ## Validation Rules
 
@@ -108,6 +109,14 @@ To access the car-related endpoints, you must include a valid JWT token in the `
 Authorization: Bearer <your-token>
 ```
 
+## Adding Authorization Token in Swagger UI
+
+Once logged in, you'll need to add the JWT token to the **Authorization** header in the Swagger UI to access protected endpoints.
+
+1. Go to the **Swagger UI**.
+2. Click the **Authorize** button (usually at the top right of the page).
+3. In the popup, enter your token in the format
+4. Click **Authorize**, and the token will be sent automatically with your requests to protected endpoints.
 
 
 
