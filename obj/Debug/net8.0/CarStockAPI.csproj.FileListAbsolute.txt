@@ -132,3 +132,4 @@
 /Users/taimoor.shakeel/CarStockAPI/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 /Users/taimoor.shakeel/CarStockAPI/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 /Users/taimoor.shakeel/CarStockAPI/bin/Debug/net8.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+/Users/taimoor.shakeel/CarStockAPI/obj/Debug/net8.0/CarStockAPI.sourcelink.json
