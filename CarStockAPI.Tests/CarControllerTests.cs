@@ -45,7 +45,7 @@ public class CarsControllerTests
     [Fact]
     public async Task GetCars_ReturnsNotFound_WhenNoCarsExist()
     {
-         
+
         var dealerId = 1;
         _mockCarService.Setup(service => service.GetCarsAsync(dealerId)).ReturnsAsync(new List<Car>());
 
@@ -57,7 +57,7 @@ public class CarsControllerTests
     [Fact]
     public async Task AddCar_ReturnsCreatedResult_WhenCarIsAdded()
     {
-         
+
         var dealerId = 1;
         var car = new AddCar { Make = "Toyota", Model = "Corolla", Year = 2020, Stock = 5 };
         var newCar = new Car { ID = 1, Make = "Toyota", Model = "Corolla", Year = 2020, Stock = 5, DealerId = dealerId };
@@ -73,11 +73,11 @@ public class CarsControllerTests
     [Fact]
     public async Task UpdateCarStock_ReturnsOkResult_WhenStockUpdated()
     {
-         
+
         var dealerId = 1;
         var carId = 1;
-        var newStock = 10;
-        _mockCarService.Setup(service => service.UpdateCarStockAsync(carId, newStock, dealerId)).ReturnsAsync(true);
+        var newStock = new UpdateCarStock { Stock = 10 };
+        _mockCarService.Setup(service => service.UpdateCarStockAsync(carId, newStock.Stock, dealerId)).ReturnsAsync(true);
 
         var result = await _controller.UpdateCarStock(carId, newStock);
 
@@ -87,11 +87,11 @@ public class CarsControllerTests
     [Fact]
     public async Task UpdateCarStock_ReturnsNotFound_WhenCarNotFound()
     {
-         
+
         var dealerId = 1;
         var carId = 1;
-        var newStock = 10;
-        _mockCarService.Setup(service => service.UpdateCarStockAsync(carId, newStock, dealerId)).ReturnsAsync(false);
+        var newStock = new UpdateCarStock { Stock = 10 };
+        _mockCarService.Setup(service => service.UpdateCarStockAsync(carId, newStock.Stock, dealerId)).ReturnsAsync(false);
 
         var result = await _controller.UpdateCarStock(carId, newStock);
 
@@ -101,7 +101,7 @@ public class CarsControllerTests
     [Fact]
     public async Task DeleteCar_ReturnsOkResult_WhenCarDeleted()
     {
-         
+
         var dealerId = 1;
         var carId = 1;
         _mockCarService.Setup(service => service.DeleteCarAsync(carId, dealerId)).ReturnsAsync(true);
@@ -114,7 +114,7 @@ public class CarsControllerTests
     [Fact]
     public async Task DeleteCar_ReturnsNotFound_WhenCarNotFound()
     {
-         
+
         var dealerId = 1;
         var carId = 1;
         _mockCarService.Setup(service => service.DeleteCarAsync(carId, dealerId)).ReturnsAsync(false);
@@ -127,7 +127,7 @@ public class CarsControllerTests
     [Fact]
     public async Task Search_ReturnsOkResult_WhenCarsAreFound()
     {
-         
+
         var dealerId = 1;
         var make = "Toyota";
         var model = "Corolla";
@@ -142,9 +142,9 @@ public class CarsControllerTests
 
         var result = await _controller.SearchCars(make, model);
 
-        var okResult = Assert.IsType<OkObjectResult>(result.Result); 
-        var returnValue = Assert.IsType<List<Car>>(okResult.Value); 
-        Assert.Single(returnValue); 
+        var okResult = Assert.IsType<OkObjectResult>(result.Result);
+        var returnValue = Assert.IsType<List<Car>>(okResult.Value);
+        Assert.Single(returnValue);
         Assert.Equal(make, returnValue[0].Make);
     }
 
@@ -158,7 +158,7 @@ public class CarsControllerTests
 
         _mockCarService.Setup(service => service.SearchCarsAsync(dealerId, make, model))
                        .ReturnsAsync(new List<Car>());
-                       
+
         var result = await _controller.SearchCars(make, model);
 
         Assert.IsType<NotFoundObjectResult>(result.Result);
