@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-public class BaseController : ControllerBase
+public class CarBaseController : ControllerBase
 {
     // Method to get DealerID from JWT token
     protected int GetDealerId()

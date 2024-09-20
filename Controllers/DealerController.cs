@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 [Route("api/[controller]")]
 [ApiController]
-public class DealerController : ControllerBase
+public class DealersController : ControllerBase
 {
     private readonly IDealerService _dealerService;
     private readonly IValidator<RegisterDealer> _registerValidator;
 
-    public DealerController(IDealerService dealerService, IValidator<RegisterDealer> registerValidator)
+    public DealersController(IDealerService dealerService, IValidator<RegisterDealer> registerValidator)
     {
         _dealerService = dealerService;
         _registerValidator = registerValidator;

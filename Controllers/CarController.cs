@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CarsController : BaseController
+public class CarsController : CarBaseController
 {
     private readonly ICarService _carService;
 
