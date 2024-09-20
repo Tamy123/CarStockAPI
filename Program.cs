@@ -67,6 +67,7 @@ builder.Services.AddDbContext<DealerContext>(options => options.UseInMemoryDatab
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterDealerValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<LoginDealerValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CarValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CarStockUpdateValidator>();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 

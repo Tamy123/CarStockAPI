@@ -21,6 +21,16 @@ public class CarValidator : AbstractValidator<AddCar>
     }
 }
 
+public class CarStockUpdateValidator : AbstractValidator<UpdateCarStock>
+{
+    public CarStockUpdateValidator()
+    {
+        RuleFor(x => x.Stock)
+            .GreaterThanOrEqualTo(0).WithMessage("Stock level cannot be negative.");
+    }
+}
+
+
 public class RegisterDealerValidator : AbstractValidator<RegisterDealer>
 {
     private readonly DealerContext _context;

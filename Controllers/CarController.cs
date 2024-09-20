@@ -58,11 +58,16 @@ public class CarsController : BaseController
     // PUT: api/cars/{id}/stock - Update the stock level of a car for the authenticated dealer
     [Authorize]
     [HttpPut("{id}/stock")]
-    public async Task<IActionResult> UpdateCarStock(int id, [FromBody] int newStock)
+    public async Task<IActionResult> UpdateCarStock(int id, [FromBody] UpdateCarStock newStock)
     {
         var dealerId = GetDealerId();
 
-        var success = await _carService.UpdateCarStockAsync(id, newStock, dealerId);
+        // if (newStock < 0)
+        // {
+        //     return BadRequest("Stock level cannot be negative.");
+        // }
+
+        var success = await _carService.UpdateCarStockAsync(id, newStock.Stock, dealerId);
 
         if (!success)
         {

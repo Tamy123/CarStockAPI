@@ -41,7 +41,7 @@ public class CarService : ICarService
     {
         var car = await _context.Cars.FirstOrDefaultAsync(c => c.ID == id && c.DealerId == dealerId);
 
-        if (car == null || newStock < 0)
+        if (car == null)
         {
             return false;
         }
