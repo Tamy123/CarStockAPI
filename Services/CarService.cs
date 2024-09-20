@@ -1,4 +1,3 @@
-using CarStockAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
 public class CarService : ICarService
