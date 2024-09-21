@@ -62,11 +62,6 @@ public class CarsController : CarBaseController
     {
         var dealerId = GetDealerId();
 
-        // if (newStock < 0)
-        // {
-        //     return BadRequest("Stock level cannot be negative.");
-        // }
-
         var success = await _carService.UpdateCarStockAsync(id, newStock.Stock, dealerId);
 
         if (!success)
